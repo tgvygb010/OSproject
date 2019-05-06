@@ -226,9 +226,9 @@ public class GameBoard extends JFrame
      */
     private void getPassword()
     {
-        String [] a = { "india", "japan", "nepal", "china" };
+        String [] a = { "hercules", "tarzan", "mulan", "incredibles","pinocchio","aladin","cinderella","frozen","minions","zootopia" };
         Random rand = new Random();
-        int n = rand.nextInt(50);
+        int n = rand.nextInt(10);
         password = a[n];
   /*      String[] options = {"Let's Play", "Quit"};
         JPanel passwordPanel = new JPanel();
