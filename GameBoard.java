@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -225,8 +226,11 @@ public class GameBoard extends JFrame
      */
     private void getPassword()
     {
-        /*
-        String[] options = {"Let's Play", "Quit"};
+        String [] a = { "india", "japan", "nepal", "china" };
+        Random rand = new Random();
+        int n = rand.nextInt(50);
+        password = a[n];
+  /*      String[] options = {"Let's Play", "Quit"};
         JPanel passwordPanel = new JPanel();
         JLabel passwordLabel = new JLabel("Enter Password to Be Guessed: ");
         JTextField passwordText = new JTextField(MAX_PASSWORD_LENGTH);
@@ -264,17 +268,15 @@ public class GameBoard extends JFrame
                     password = ""; // empty password if error occurs
                 }
             }
-                   
+                    
             else if (confirm == 1)
                 System.exit(0);
         }
-        
+        */
         // use a regular expression to replace all characters with *'s and
         //     hide the password when it is displayed
-        */
         passwordHidden.append(password.replaceAll(".", "*"));
         correct.setText(correct.getText() + passwordHidden.toString());
-       
     }
     
     /**
