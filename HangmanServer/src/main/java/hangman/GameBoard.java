@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import java.util.*;
 
 /**
  * Displays a Hangman game board to the screen for interaction with the player.
@@ -124,7 +124,7 @@ public class GameBoard extends JFrame {
         HANGMAN_IMAGE_TYPE = LETTER_IMAGE_TYPE = ".png";
         HANGMAN_IMAGE_BASE_NAME = "hangman";
 
-        setTitle("Phantom Hangman");
+        setTitle("Hangman");
         setSize(WIDTH, HEIGHT);
         setResizable(false);
         addCloseWindowListener();
@@ -212,40 +212,13 @@ public class GameBoard extends JFrame {
      * Retrieves the password from the player, constrained by the length and content
      * of the password.
      */
-    private void getPassword() {
-        String[] options = { "Let's Play", "Quit" };
-        JPanel passwordPanel = new JPanel();
-        JLabel passwordLabel = new JLabel("Enter Password to Be Guessed: ");
-        JTextField passwordText = new JTextField(MAX_PASSWORD_LENGTH);
-        passwordPanel.add(passwordLabel);
-        passwordPanel.add(passwordText);
-        int confirm = -1;
+    private void getPassword()
+    {
+        String [] a = { "hercules", "tarzan", "mulan", "incredibles","pinocchio","aladin","cinderella","frozen","minions","zootopia" };
+        Random rand = new Random();
+        int n = rand.nextInt(10);
+        password = a[n];
 
-        while (password.isEmpty()) {
-            confirm = JOptionPane.showOptionDialog(null, passwordPanel, "Enter Password", JOptionPane.DEFAULT_OPTION,
-                    JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-
-            if (confirm == 0) {
-                password = passwordText.getText();
-
-                // ensure password is only made up of letters and is less than
-                // the maximum password length
-                // NOTE: matches() (and its use of regular expressions) is used
-                // for simplicity, not speed
-                if (!password.matches("[a-zA-Z]+") || password.length() > MAX_PASSWORD_LENGTH) {
-                    JOptionPane.showMessageDialog(null,
-                            "Password must be less than 10 characters and " + "only contain letters A-Z.",
-                            "Invalid Password", JOptionPane.ERROR_MESSAGE);
-                    password = ""; // empty password if error occurs
-                }
-            }
-
-            else if (confirm == 1)
-                System.exit(0);
-        }
-
-        // use a regular expression to replace all characters with *'s and
-        // hide the password when it is displayed
         passwordHidden.append(password.replaceAll(".", "*"));
         correct.setText(correct.getText() + passwordHidden.toString());
     }

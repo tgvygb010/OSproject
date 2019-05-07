@@ -22,9 +22,6 @@ class TCPClient {
 
             inFromServer = new Scanner(clientSocket.getInputStream());
 
-            GameBoard newPhantomHangman = new GameBoard();
-
-
             sentence = inFromUser.nextLine();
 
             outToServer.writeBytes(sentence + '\n');
