@@ -1,0 +1,32 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TCPClient",
+            "request": "launch",
+            "mainClass": "hangman.TCPClient",
+            "projectName": "HangmanServer"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TCPConcurrentServer",
+            "request": "launch",
+            "mainClass": "hangman.TCPConcurrentServer",
+            "projectName": "HangmanServer"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
+            "mainClass": "hangman.App",
+            "projectName": "HangmanServer"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
+            "mainClass": "hangman.App",
+            "projectName": "HangmanClient"
+        }
+    ]
+}

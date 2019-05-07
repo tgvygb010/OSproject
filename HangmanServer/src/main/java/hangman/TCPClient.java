@@ -13,15 +13,26 @@ class TCPClient {
         DataOutputStream outToServer = null;
         Scanner inFromServer = null;
         try {
+
             inFromUser = new Scanner(System.in);
+
             clientSocket = new Socket("localhost", 6789);
+
             outToServer = new DataOutputStream(clientSocket.getOutputStream());
+
             inFromServer = new Scanner(clientSocket.getInputStream());
-            System.out.print("Please enter words: ");
+
+            GameBoard newPhantomHangman = new GameBoard();
+
+
             sentence = inFromUser.nextLine();
+
             outToServer.writeBytes(sentence + '\n');
+
             modifiedSentence = inFromServer.nextLine();
+
             System.out.println("FROM SERVER: " + modifiedSentence);
+
         } catch (IOException e) {
             System.out.println("Error occurred: Closing the connection");
         } finally {
